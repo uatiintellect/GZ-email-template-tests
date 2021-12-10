@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-email_notification_sub_start": "node tests/email_notification_sub_start.js"
   },
   "repository": {
     "type": "git",
