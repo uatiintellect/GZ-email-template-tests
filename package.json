@@ -1,0 +1,25 @@
+{
+  "name": "gz-email-template-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uatiintellect/GZ-email-template-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uatiintellect/GZ-email-template-tests/issues"
+  },
+  "homepage": "https://github.com/uatiintellect/GZ-email-template-tests#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "puppeteer": "^13.0.0",
+    "puppeteer-screen-recorder": "^2.0.2"
+  }
+}
