@@ -8,7 +8,7 @@ async function func() {
     var cor_name = 'A TEST course for Testing Operation'; // default name for all the orgs
 
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         defaultViewport: null,
         //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',   //windows
         //executablePath: "..\\cdr\\chromedriver_win32\\chromedriver.exe",    //linux
@@ -19,17 +19,17 @@ async function func() {
     var page_gz = await browser.newPage(); //gz page
     var page_temp_mail = await browser.newPage();   //temp-mail page
     //when headless=true
-    await page.setViewport({
-        width: 1920,
-        height: 1080,
-        deviceScaleFactor: 1,
-    })
-    //when headless=true
-    await page_gz.setViewport({
-        width: 1920,
-        height: 1080,
-        deviceScaleFactor: 1,
-    })
+    // await page.setViewport({
+    //     width: 1920,
+    //     height: 1080,
+    //     deviceScaleFactor: 1,
+    // })
+    // //when headless=true
+    // await page_gz.setViewport({
+    //     width: 1920,
+    //     height: 1080,
+    //     deviceScaleFactor: 1,
+    // })
     //Configure the navigation timeout
     await page.setDefaultNavigationTimeout(0);
     await page_gz.setDefaultNavigationTimeout(0);
@@ -37,7 +37,7 @@ async function func() {
 
     await page.bringToFront(); //dashboard page
     // const recorder = new PuppeteerScreenRecorder(page);
-    // await recorder.start("./videos/email_notification_account_start_LS.mp4"); 
+    // await recorder.start("./videos/email_notification_sub_expire_LS.mp4"); 
 
     await page.goto("https://admin-staging.learnforce.cloud/admin/dashboard"); //mentioned site is then reached
     await page.waitForTimeout(5000); // delay for 5 second for website to load
@@ -47,7 +47,7 @@ async function func() {
     await userNameField.type(email);
     const passwordField = await page.waitForSelector('#__next > div > form > div:nth-child(3) > input');
     await passwordField.type(password)
-    await page.waitForTimeout(3500); // delay for 5 second for website to load
+    await page.waitForTimeout(6500); // delay for 6.5 second for website to load
 
     await page.evaluate(() => {
         const button = document.querySelector('#__next > div > form > div.flex.items-center.justify-between.mt-4.w-full > button');
@@ -79,7 +79,12 @@ async function func() {
             checkbox_1.click();
         }
 
-        const checkbox_3 = document.querySelector('#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(4) > div.flex.items-center.h-10.cursor-pointer > div > input');
+        const checkbox_2 = document.querySelector('#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(2) > div.flex.items-center.h-10.cursor-pointer > div > input');
+        if (!(checkbox_2.checked)){
+            checkbox_2.click();
+        }
+
+        const checkbox_3 = document.querySelector('#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(3) > div.flex.items-center.h-10.cursor-pointer > div > input');
         if (!(checkbox_3.checked)){
             checkbox_3.click();
         }
@@ -88,7 +93,7 @@ async function func() {
     //opening gz
     await page_gz.bringToFront()
     // const recorder_1 = new PuppeteerScreenRecorder(page_gz);
-    // await recorder_1.start("./videos/email_notification_account_start_GZ.mp4"); 
+    // await recorder_1.start("./videos/email_notification_sub_expire_GZ.mp4"); 
 
     await page_gz.goto("https://www.geluk.academy/"); //mentioned site is then reached
     await page_gz.waitForTimeout(5000); // delay for 5 second for website to load
@@ -100,7 +105,7 @@ async function func() {
     //getting temp mail
     await page_temp_mail.bringToFront();
     // const recorder_2 = new PuppeteerScreenRecorder(page_temp_mail);
-    // await recorder_2.start("./videos/email_notification_account_start.mp4"); 
+    // await recorder_2.start("./videos/email_notification_sub_expire_tmp.mp4"); 
     await page_temp_mail.goto("https://tempmailo.com/"); //mentioned site is then reached
     await page_temp_mail.waitForTimeout(5000); // delay for 5 second for website to load
     let email_elem = await page_temp_mail.waitForSelector('#i-email', {visible: true,});
@@ -235,7 +240,7 @@ async function func() {
     
     await page_gz.waitForTimeout(6000);
 
-    //going to ls_page
+        //going to ls_page
     await page.bringToFront();
     await page.waitForTimeout(4000);
     await page.click(
@@ -249,13 +254,19 @@ async function func() {
     await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
     await page.waitForTimeout(7750);
 
-    //clicking on third box
-    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(4) > div.text-gray-500.cursor-pointer > a");
+    //clicking on second expire box
+    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(2) > div.text-gray-500.cursor-pointer > a");
     await page.waitForTimeout(7750);
     await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
     await page.waitForTimeout(8750);
 
+    //clicking on third expire box
+    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(3) > div.text-gray-500.cursor-pointer > a");
+    await page.waitForTimeout(7750);
+    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
+    await page.waitForTimeout(8750);
 
+    //going to temp-mail page 
     await page_temp_mail.bringToFront();
     await page_temp_mail.waitForTimeout(8500); 
     await page_temp_mail.click("#apptmo > div > div.i-box > div.primaryCommands > div:nth-child(2) > button");
@@ -269,9 +280,9 @@ async function func() {
     // await recorder_2.stop();
 
     await page_temp_mail.screenshot({
-        path: "./screenshots/email_notification_account_start.png",
+        path: "./screenshots/email_notification_sub_expire.png",
     });
-    console.log("test passed => 'email_notification_account_start'");
+    console.log("test passed => 'email_notification_sub_expire'");
     console.log("deleting temp mail");
     
     await page.bringToFront();
@@ -349,7 +360,7 @@ async function func() {
 
     await browser.close();
 
-    return "test passed => 'email_notification_account_start'";
+    return "test passed => 'email_notification_sub_expire'";
 }
 ;(async () => {
     await func();
