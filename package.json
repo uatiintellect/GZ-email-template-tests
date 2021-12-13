@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-email_notification_sub_start": "node tests/email_notification_sub_start.js"
+    "test-email_notification_sub_start": "node tests/email_notification_sub_start.js",
+    "test-email_notification_account_start": "node tests/email_notification_account_start.js"
+
   },
   "repository": {
     "type": "git",
