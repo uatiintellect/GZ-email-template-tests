@@ -9,7 +9,8 @@
     "test-email_notification_sub_expire": "node tests/email_notification_sub_expire.js",
     "test-email_notification_user_course_finished": "node tests/email_notification_user_course_finished.js",
     "test-email_notification_user_course_started": "node tests/email_notification_user_course_started.js",
-    "test-email_notification_user_amount_full": "node tests/email_notification_user_amount_full.js"
+    "test-email_notification_user_amount_full": "node tests/email_notification_user_amount_full.js",
+    "test-email_notification_user_all_course_finished": "node tests/email_notification_user_all_course_finished.js"
 
   },
   "repository": {
