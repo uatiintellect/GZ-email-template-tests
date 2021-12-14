@@ -8,7 +8,7 @@ async function func() {
     var cor_name = 'A TEST course for Testing Operation'; // default name for all the orgs
 
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         defaultViewport: null,
         //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',   //windows
         //executablePath: "..\\cdr\\chromedriver_win32\\chromedriver.exe",    //linux
