@@ -37,7 +37,7 @@ async function func() {
 
     await page.bringToFront(); //dashboard page
     // const recorder = new PuppeteerScreenRecorder(page);
-    // await recorder.start("./videos/email_notification_sub_expire_LS.mp4"); 
+    // await recorder.start("./videos/email_notification_user_amount_full_LS.mp4"); 
 
     await page.goto("https://admin-staging.learnforce.cloud/admin/dashboard"); //mentioned site is then reached
     await page.waitForTimeout(5000); // delay for 5 second for website to load
@@ -93,7 +93,7 @@ async function func() {
     //opening gz
     await page_gz.bringToFront()
     // const recorder_1 = new PuppeteerScreenRecorder(page_gz);
-    // await recorder_1.start("./videos/email_notification_sub_expire_GZ.mp4"); 
+    // await recorder_1.start("./videos/email_notification_user_amount_full_GZ.mp4"); 
 
     await page_gz.goto("https://www.geluk.academy/"); //mentioned site is then reached
     await page_gz.waitForTimeout(5000); // delay for 5 second for website to load
@@ -105,7 +105,7 @@ async function func() {
     //getting temp mail
     await page_temp_mail.bringToFront();
     // const recorder_2 = new PuppeteerScreenRecorder(page_temp_mail);
-    // await recorder_2.start("./videos/email_notification_sub_expire_tmp.mp4"); 
+    // await recorder_2.start("./videos/email_notification_user_amount_full_tmp.mp4"); 
     await page_temp_mail.goto("https://tempmailo.com/"); //mentioned site is then reached
     await page_temp_mail.waitForTimeout(5000); // delay for 5 second for website to load
     let email_elem = await page_temp_mail.waitForSelector('#i-email', {visible: true,});
@@ -211,25 +211,74 @@ async function func() {
     await page_gz.click("#_next > div > div > div > button");
     await page_gz.waitForTimeout(3000);
 
-    //enetering license code 
+    // //enetering license code 
+
+    // for(let i=0;i<license_code.length;i++){
+
+    //     let selector =
+    //       "#_next > div > div > div.flex.flex-col.h-full.items-center.justify-between.w-full.mt-11.xl\\:mt-14.\\32 xl\\:mt-5m > div.py-7 > div > div:nth-child(" +
+    //       (i + 1) +
+    //       ") > input";
+        
+    //       await page_gz.type(selector,license_code.substring(i,i+1),{delay:17});
+    // }
+    // await page_gz.waitForTimeout(2000);
+    // await page_gz.click("#_next > div > div > div.flex.flex-col.h-full.items-center.justify-between.w-full.mt-11.xl\\:mt-14.\\32 xl\\:mt-5m > button");
+    // await page_gz.waitForTimeout(15000);
+
+    // await page_gz.waitForSelector("#_next > div > div > div.flex.flex-col.h-full.items-center.justify-between.w-full.mt-11.xl\\:mt-14.\\32 xl\\:mt-5m > form > div > button");
+
+    // await page_gz.evaluate(() => {
+    //     let button = document.querySelector("#_next > div > div > div.flex.flex-col.h-full.items-center.justify-between.w-full.mt-11.xl\\:mt-14.\\32 xl\\:mt-5m > form > div > button");
+    //     button.scrollIntoView({
+    //         behavior: "smooth",
+    //         block: "center",
+    //         inline: "center",
+    //     });
+    //     button.click();
+    // });
+    
+    // await page_gz.waitForTimeout(6000);
+
+    //going to the account settings -> licenses
+    await page_gz.click("#_next > div > div > div.flex.flex-col.h-full.items-center.justify-between.w-full.mt-11.xl\\:mt-14.\\32 xl\\:mt-5m > div.flex.justify-center.py-10 > button");
+    await page_gz.waitForTimeout(8000);
+    var xpath_arrow_drop_down = "//*[@id='_next']/div/div[1]/div/div[1]/div/div/div/div/div/div[1]/div"; //xpath of dropdown
+    var xpath_menu_drop_down = "//*[@id='_next']/div/div[1]/div/div[1]/div/div/div/div/div/div[2]/ul/a"; //xpath of dropdown_menu
+
+
+    let arrow_drop = await page_gz.waitForXPath(xpath_arrow_drop_down, {visible: true,}); //arrow drop down is to be found here
+    await arrow_drop.evaluate((b) => b.click()); //arrow drop down is clicked
+
+    await page_gz.waitForTimeout(3000); // delay of 3 seconds
+
+    let menu_drop = await page_gz.waitForXPath(xpath_menu_drop_down, {visible: true,}); //menu my profile is to be found here
+    await menu_drop.evaluate((b) => b.click()); //menu my profile is clicked
+    await page_gz.waitForTimeout(6000);
+
+    await page_gz.click("#_next > div > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.mt-20 > div.border-b.border-Newgray.w-full > ul > li:nth-child(3) > a");
+    await page_gz.waitForTimeout(6000);
 
     for(let i=0;i<license_code.length;i++){
+    await page_gz.waitForTimeout(99);
 
-        let selector =
-          "#_next > div > div > div.flex.flex-col.h-full.items-center.justify-between.w-full.mt-11.xl\\:mt-14.\\32 xl\\:mt-5m > div.py-7 > div > div:nth-child(" +
-          (i + 1) +
-          ") > input";
+    let selector =
+        "#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div > div.mt-20 > div.mt-70 > div > div > div > div > div > div > div:nth-child(" +
+        (i + 1) +
+        ") > input";
         
-          await page_gz.type(selector,license_code.substring(i,i+1),{delay:17});
+      await page_gz.type(selector,license_code.substring(i,i+1),{delay:17});
     }
-    await page_gz.waitForTimeout(2000);
-    await page_gz.click("#_next > div > div > div.flex.flex-col.h-full.items-center.justify-between.w-full.mt-11.xl\\:mt-14.\\32 xl\\:mt-5m > button");
-    await page_gz.waitForTimeout(15000);
+    await page_gz.waitForTimeout(666);
 
-    await page_gz.waitForSelector("#_next > div > div > div.flex.flex-col.h-full.items-center.justify-between.w-full.mt-11.xl\\:mt-14.\\32 xl\\:mt-5m > form > div > button");
+    await page_gz.click("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div > div.mt-20 > div.mt-70 > div > div > div > div > button");
+    
+    
+    await page_gz.waitForTimeout(6666);
+    await page_gz.waitForSelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div > div.mt-20 > div.mt-70 > div > div > div > div > form > div > button");
 
     await page_gz.evaluate(() => {
-        let button = document.querySelector("#_next > div > div > div.flex.flex-col.h-full.items-center.justify-between.w-full.mt-11.xl\\:mt-14.\\32 xl\\:mt-5m > form > div > button");
+        let button = document.querySelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div > div.mt-20 > div.mt-70 > div > div > div > div > form > div > button");
         button.scrollIntoView({
             behavior: "smooth",
             block: "center",
@@ -240,7 +289,8 @@ async function func() {
     
     await page_gz.waitForTimeout(6000);
 
-        //going to ls_page
+
+    //going to ls_page
     await page.bringToFront();
     await page.waitForTimeout(4000);
     await page.click(
@@ -248,17 +298,17 @@ async function func() {
     );
     await page.waitForTimeout(7750);
 
-    //clicking on first box
-    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(1) > div.text-gray-500.cursor-pointer > a");
-    await page.waitForTimeout(7750);
-    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
-    await page.waitForTimeout(7750);
+    // //clicking on first box
+    // await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(1) > div.text-gray-500.cursor-pointer > a");
+    // await page.waitForTimeout(7750);
+    // await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
+    // await page.waitForTimeout(7750);
 
-    //clicking on second expire box
-    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(2) > div.text-gray-500.cursor-pointer > a");
-    await page.waitForTimeout(7750);
-    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
-    await page.waitForTimeout(8750);
+    // //clicking on second expire box
+    // await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(2) > div.text-gray-500.cursor-pointer > a");
+    // await page.waitForTimeout(7750);
+    // await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
+    // await page.waitForTimeout(8750);
 
     //clicking on third expire box
     await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(3) > div.text-gray-500.cursor-pointer > a");
@@ -280,9 +330,9 @@ async function func() {
     // await recorder_2.stop();
 
     await page_temp_mail.screenshot({
-        path: "./screenshots/email_notification_sub_expire.png",
+        path: "./screenshots/email_notification_user_amount_full.png",
     });
-    console.log("test passed => 'email_notification_sub_expire'");
+    console.log("test passed => 'email_notification_user_amount_full'");
     console.log("deleting temp mail");
     
     await page.bringToFront();
@@ -360,7 +410,7 @@ async function func() {
 
     await browser.close();
 
-    return "test passed => 'email_notification_sub_expire'";
+    return "test passed => 'email_notification_user_amount_full'";
 }
 ;(async () => {
     await func();
