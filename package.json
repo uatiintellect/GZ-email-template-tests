@@ -1,0 +1,24 @@
+{
+  "name": "gz-email-template-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-user_join_event": "node tests/user_join_event.js",
+    "test-remind_attendence_webinar": "node tests/remind_attendence_webinar.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uatiintellect/GZ-email-template-tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uatiintellect/GZ-email-template-tests/issues"
+  },
+  "homepage": "https://github.com/uatiintellect/GZ-email-template-tests#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "puppeteer": "^13.0.0"
+  }
+}
