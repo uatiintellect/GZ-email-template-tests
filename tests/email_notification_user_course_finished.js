@@ -8,7 +8,7 @@ async function func() {
     var cor_name = 'A TEST course for Testing Operation'; // default name for all the orgs
 
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         defaultViewport: null,
         //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',   //windows
         //executablePath: "..\\cdr\\chromedriver_win32\\chromedriver.exe",    //linux
@@ -19,17 +19,17 @@ async function func() {
     var page_gz = await browser.newPage(); //gz page
     var page_temp_mail = await browser.newPage();   //temp-mail page
     //when headless=true
-    // await page.setViewport({
-    //     width: 1920,
-    //     height: 1080,
-    //     deviceScaleFactor: 1,
-    // })
-    // //when headless=true
-    // await page_gz.setViewport({
-    //     width: 1920,
-    //     height: 1080,
-    //     deviceScaleFactor: 1,
-    // })
+    await page.setViewport({
+        width: 1920,
+        height: 1080,
+        deviceScaleFactor: 1,
+    })
+    //when headless=true
+    await page_gz.setViewport({
+        width: 1920,
+        height: 1080,
+        deviceScaleFactor: 1,
+    })
     //Configure the navigation timeout
     await page.setDefaultNavigationTimeout(0);
     await page_gz.setDefaultNavigationTimeout(0);
