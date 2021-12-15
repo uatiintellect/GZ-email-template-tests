@@ -59,8 +59,7 @@ require('dotenv').config();
     document.querySelector("#_next > div > div > form > div.mt-8.lg\\:mt-6.xl\\:mt-9.flex.justify-center.text-center.\\32 xl\\:mt-5 > button").click();});
     await page1.waitForTimeout(5000);
     
-
-    // click on menu dropdown
+    // // click on menu dropdown
 
     let dropdown_t = page1.waitForXPath(
     '//*[@id="_next"]/div/div[1]/div[1]/div/div/div/div/div/p',
@@ -72,39 +71,28 @@ require('dotenv').config();
     await page1.keyboard.press('Enter')
     await page1.waitForTimeout(8000)
     
-    // //user profile
-    // await page1.click("#_next > div > div.relative.z-30 > div:nth-child(1) > div > div > div > div > div > div > div.absolute.mt-4.right-0.transition-all.duration-300.ease-in-out.opacity-1 > ul > a > li");
-    // await page1.waitForTimeout(1500)
+    //user profile
+    await page1.click("#_next > div > div.relative.z-30 > div:nth-child(1) > div > div > div > div > div > div > div.absolute.mt-4.right-0.transition-all.duration-300.ease-in-out.opacity-1 > ul > a > li");
+    await page1.waitForTimeout(1500)
 
-    // // click on event
-    // await page1.click("#_next > div > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.mt-20 > div.overflow-x-hidden > div > div.xl\\:w-1\\/3.mt-8.md\\:mt-16.xl\\:mt-0.w-full > div > p");
-    // await page1.waitForTimeout(3500)
+    //click on course
 
+    await page1.click("#_next > div > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.mt-20 > div.overflow-x-hidden > div > div.xl\\:w-2\\/3.md\\:pr-8.lg\\:pr-14.xl\\:pr-20.\\32 xl\\:pr-24.w-full > div.flex.flex-col.mt-12.space-y-10 > a > div > div > div.md\\:w-2\\/3.pl-6.pr-2.\\32 xl\\:pr-4.\\32 xl\\:pl-8.mt-4.md\\:mt-0 > div > p.text-xl.md\\:text-2xl.xl\\:text-3xl.\\32 xl\\:text-35fs.font-bold.f-f-p");
+    await page1.waitForTimeout(25000);
 
-    // click on event cross icon
+    //click on lesson
+    await page1.click("#c94b8246-2516-452f-8826-21a59beaeb0d > div > div.flex.flex-row.items-center.space-x-3");
+    await page1.waitForTimeout(1500)
 
-    await page1.click("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div > div > div > div > div > div > ul > li > div > div > button > svg");
-    await page1.waitForTimeout(3500);
-
-
-    await page1.click("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div > div > div > div > div > div > ul > li > div > div > button");
-    await page1.waitForTimeout(3500);
+    await page1.waitForTimeout(3500)
 
 
-    await page1.waitForSelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div:nth-child(2) > div.w-full.h-full.pb-20 > div > div > div.flex.flex-col.items-center.mt-8.lg\\:mt-0.w-full.relative > div.mt-4.w-full > textarea");
-    let event = "Interested";
-    await page1.type("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div:nth-child(2) > div.w-full.h-full.pb-20 > div > div > div.flex.flex-col.items-center.mt-8.lg\\:mt-0.w-full.relative > div.mt-4.w-full > textarea", event);
-
-    await page1.evaluate(() => {
-        document.querySelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div:nth-child(2) > div.w-full.h-full.pb-20 > div > div > div.flex.flex-col.items-center.mt-8.lg\\:mt-0.w-full.relative > div.py-6 > button").click();});
 
 
-    // click on cross icon
-    await page1.click("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div:nth-child(2) > div.w-full.h-full.pb-20 > div > button > svg");
-    await page1.waitForTimeout(5000);
 
 
-    //open new page1
+
+    //open new page2
     var page2 = await browser.newPage();
 
     await page2.goto("https://learnforce-admin-next.vercel.app/");
@@ -131,15 +119,18 @@ require('dotenv').config();
     await page2.click("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7) > div > div > span.text-md.ml-2.capitalize");
     await page2.waitForTimeout(5000);
 
-    await page2.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(6) > div > a > span");
+    await page2.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(4) > label > p");
     await page2.waitForTimeout(5000);
 
 
-    await page2.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(5) > label > p");
+    await page2.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(4) > label > p");
     await page2.waitForTimeout(5000);
 
     //click on subject
     await page2.click("#subject");
+    await page2.waitForTimeout(5000);
+
+    await page2.type("#subject", "sb");
     await page2.waitForTimeout(5000);
 
     // new page 3
@@ -152,12 +143,11 @@ require('dotenv').config();
     await page3.waitForTimeout(2000);
 
     //screenshot
-    await page3.screenshot({ path: './screenshots/reminder_for_webinar.png' });
+    await page3.screenshot({ path: './screenshots/reminder_course_completion.png' }); 
 
+    await page3.waitForTimeout(8000);
 
-    await page3.waitForTimeout(5000);
-
-    console.log("Test case passed => reminder_for_webinar_send");
+    console.log("Test case passed => reminder_for_course_completion");
     await browser.close();    
     
 })();

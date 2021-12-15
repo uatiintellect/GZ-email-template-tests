@@ -152,10 +152,10 @@ require('dotenv').config();
     await page3.waitForTimeout(2000);
 
     //screenshot
-    await page3.screenshot({ path: './screenshots/email_notify.png' });
+    await page3.screenshot({ path: './screenshots/user_join_event.png' });
 
 
-    await page3.waitForTimeout(500000);
+    await page3.waitForTimeout(5000);
 
     console.log("Test case passed => user join event");
     await browser.close();    
