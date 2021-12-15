@@ -12,7 +12,11 @@
     "test-remind_attendence_webinar": "node tests/remind_attendence_webinar.js",
     "test-course_completion_reminder": "node tests/course_completion_reminder.js",
     "test-new_lesson_available": "node tests/new_lesson_available.js",
-    "test-new_lesson_avail": "node tests/new_lesson_avail.js"
+    "test-new_lesson_avail": "node tests/new_lesson_avail.js",
+    "test-email_notification_user_course_started": "node tests/email_notification_user_course_started.js",
+    "test-email_notification_user_amount_full": "node tests/email_notification_user_amount_full.js",
+    "test-email_notification_user_all_course_finished": "node tests/email_notification_user_all_course_finished.js"
+
   },
   "repository": {
     "type": "git",

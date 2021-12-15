@@ -8,7 +8,7 @@ async function func() {
     var cor_name = 'A TEST course for Testing Operation'; // default name for all the orgs
 
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         defaultViewport: null,
         //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',   //windows
         //executablePath: "..\\cdr\\chromedriver_win32\\chromedriver.exe",    //linux
@@ -19,17 +19,17 @@ async function func() {
     var page_gz = await browser.newPage(); //gz page
     var page_temp_mail = await browser.newPage();   //temp-mail page
     //when headless=true
-    await page.setViewport({
-        width: 1920,
-        height: 1080,
-        deviceScaleFactor: 1,
-    })
-    //when headless=true
-    await page_gz.setViewport({
-        width: 1920,
-        height: 1080,
-        deviceScaleFactor: 1,
-    })
+    // await page.setViewport({
+    //     width: 1920,
+    //     height: 1080,
+    //     deviceScaleFactor: 1,
+    // })
+    // //when headless=true
+    // await page_gz.setViewport({
+    //     width: 1920,
+    //     height: 1080,
+    //     deviceScaleFactor: 1,
+    // })
     //Configure the navigation timeout
     await page.setDefaultNavigationTimeout(0);
     await page_gz.setDefaultNavigationTimeout(0);
@@ -37,7 +37,7 @@ async function func() {
 
     await page.bringToFront(); //dashboard page
     // const recorder = new PuppeteerScreenRecorder(page);
-    // await recorder.start("./videos/email_notification_user_course_finished_LS.mp4"); 
+    // await recorder.start("./videos/email_notification_user_all_course_finished_LS.mp4"); 
 
     await page.goto("https://admin-staging.learnforce.cloud/admin/dashboard"); //mentioned site is then reached
     await page.waitForTimeout(5000); // delay for 5 second for website to load
@@ -88,13 +88,17 @@ async function func() {
         if (!(user_checkbox_2.checked)){
             user_checkbox_2.click();
         }
-    
+        
+        const user_checkbox_1 = document.querySelector('#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(1) > label > div > input');
+        if (!(user_checkbox_1.checked)){
+            user_checkbox_1.click();
+        }
     });
 
     //opening gz
     await page_gz.bringToFront()
     // const recorder_1 = new PuppeteerScreenRecorder(page_gz);
-    // await recorder_1.start("./videos/email_notification_user_course_finished_GZ.mp4"); 
+    // await recorder_1.start("./videos/email_notification_user_all_course_finished_GZ.mp4"); 
 
     await page_gz.goto("https://www.geluk.academy/"); //mentioned site is then reached
     await page_gz.waitForTimeout(5000); // delay for 5 second for website to load
@@ -106,7 +110,7 @@ async function func() {
     //getting temp mail
     await page_temp_mail.bringToFront();
     // const recorder_2 = new PuppeteerScreenRecorder(page_temp_mail);
-    // await recorder_2.start("./videos/email_notification_user_course_finished.mp4"); 
+    // await recorder_2.start("./videos/email_notification_user_all_course_finished_finished.mp4"); 
     await page_temp_mail.goto("https://tempmailo.com/"); //mentioned site is then reached
     await page_temp_mail.waitForTimeout(5000); // delay for 5 second for website to load
     let email_elem = await page_temp_mail.waitForSelector('#i-email', {visible: true,});
@@ -125,7 +129,7 @@ async function func() {
     await page_gz.click("button[type='submit']");
     await page_gz.waitForTimeout(8000); 
     await page_gz.click("#_next > div > div > div.flex.items-end.h-full > button");
-    await page_gz.waitForTimeout(5000); 
+    await page_gz.waitForTimeout(7000); 
 
     //going to temp mail
     await page_temp_mail.bringToFront();
@@ -249,14 +253,21 @@ async function func() {
     );
     await page.waitForTimeout(7750);
 
-    //clicking on first box
-    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(1) > div.text-gray-500.cursor-pointer > a");
-    await page.waitForTimeout(7750);
-    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
-    await page.waitForTimeout(7750);
+    // //clicking on first box
+    // await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(1) > div.text-gray-500.cursor-pointer > a");
+    // await page.waitForTimeout(7750);
+    // await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
+    // await page.waitForTimeout(7750);
 
-    //clicking on third box
-    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(4) > div.text-gray-500.cursor-pointer > a");
+    // //clicking on third box
+    // await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div:nth-child(1) > div > ul > li:nth-child(4) > div.text-gray-500.cursor-pointer > a");
+    // await page.waitForTimeout(7750);
+    // await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
+    // await page.waitForTimeout(8750);
+
+    
+    //clicking on user 1st box
+    await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(1) > div > a");
     await page.waitForTimeout(7750);
     await page.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div.fixed.bgMask.z-50.inset-0.w-full.h-full > div > div > button");
     await page.waitForTimeout(8750);
@@ -311,9 +322,9 @@ async function func() {
     // await recorder_2.stop();
 
     await page_temp_mail.screenshot({
-        path: "./screenshots/email_notification_user_course_finished.png",
+        path: "./screenshots/email_notification_user_all_course_finished.png",
     });
-    console.log("test passed => 'email_notification_user_course_finished'");
+    console.log("test passed => 'email_notification_user_all_course_finished'");
     console.log("deleting temp mail");
     
     await page.bringToFront();
@@ -391,7 +402,7 @@ async function func() {
 
     await browser.close();
 
-    return "test passed => 'email_notification_user_course_finished'";
+    return "test passed => 'email_notification_user_all_course_finished'";
 }
 ;(async () => {
     await func();
