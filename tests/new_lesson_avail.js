@@ -60,51 +60,9 @@ require('dotenv').config();
     await page1.waitForTimeout(5000);
     
 
-    // click on menu dropdown
+   
 
-    let dropdown_t = page1.waitForXPath(
-    '//*[@id="_next"]/div/div[1]/div[1]/div/div/div/div/div/p',
-    { visible: true });
-    // (await dropdown_t).focus();
-    (await dropdown_t).click()
-    await page1.waitForTimeout(1000)
-    await page1.keyboard.press('ArrowDown')
-    await page1.keyboard.press('Enter')
-    await page1.waitForTimeout(8000)
-    
-    // //user profile
-    // await page1.click("#_next > div > div.relative.z-30 > div:nth-child(1) > div > div > div > div > div > div > div.absolute.mt-4.right-0.transition-all.duration-300.ease-in-out.opacity-1 > ul > a > li");
-    // await page1.waitForTimeout(1500)
-
-    // // click on event
-    // await page1.click("#_next > div > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.mt-20 > div.overflow-x-hidden > div > div.xl\\:w-1\\/3.mt-8.md\\:mt-16.xl\\:mt-0.w-full > div > p");
-    // await page1.waitForTimeout(3500)
-
-
-    // click on event cross icon
-
-    await page1.click("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div > div > div > div > div > div > ul > li > div > div > button > svg");
-    await page1.waitForTimeout(3500);
-
-
-    await page1.click("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div > div > div > div > div > div > ul > li > div > div > button");
-    await page1.waitForTimeout(3500);
-
-
-    await page1.waitForSelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div:nth-child(2) > div.w-full.h-full.pb-20 > div > div > div.flex.flex-col.items-center.mt-8.lg\\:mt-0.w-full.relative > div.mt-4.w-full > textarea");
-    let event = "Interested";
-    await page1.type("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div:nth-child(2) > div.w-full.h-full.pb-20 > div > div > div.flex.flex-col.items-center.mt-8.lg\\:mt-0.w-full.relative > div.mt-4.w-full > textarea", event);
-
-    await page1.evaluate(() => {
-        document.querySelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div:nth-child(2) > div.w-full.h-full.pb-20 > div > div > div.flex.flex-col.items-center.mt-8.lg\\:mt-0.w-full.relative > div.py-6 > button").click();});
-
-
-    // click on cross icon
-    await page1.click("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.w-full.md\\:pl-8.xl\\:pl-12 > div:nth-child(2) > div.w-full.h-full.pb-20 > div > button > svg");
-    await page1.waitForTimeout(5000);
-
-
-    //open new page1
+    //open new page2
     var page2 = await browser.newPage();
 
     await page2.goto("https://learnforce-admin-next.vercel.app/");
@@ -131,11 +89,11 @@ require('dotenv').config();
     await page2.click("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7) > div > div > span.text-md.ml-2.capitalize");
     await page2.waitForTimeout(5000);
 
-    await page2.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(6) > div > a > span");
+    await page2.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(3) > label > p");
     await page2.waitForTimeout(5000);
 
 
-    await page2.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(5) > label > p");
+    await page2.click("#__next > div > div > div.w-full.min-h-screen.bg-lf-bg.dark\\:bg-transparent.sm\\:pl-64.pl-14 > div > div > div:nth-child(2) > div.md\\:w-1\\/2.w-full.md\\:pl-6 > div > ul > li:nth-child(3) > label > p");
     await page2.waitForTimeout(5000);
 
     //click on subject

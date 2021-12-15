@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test-user_join_event": "node tests/user_join_event.js",
-    "test-remind_attendence_webinar": "node tests/remind_attendence_webinar.js"
+    "test-remind_attendence_webinar": "node tests/remind_attendence_webinar.js",
+    "test-course_completion_reminder": "node tests/course_completion_reminder.js",
+    "test-new_lesson_available": "node tests/new_lesson_available.js",
+    "test-new_lesson_avail": "node tests/new_lesson_avail.js"
   },
   "repository": {
     "type": "git",
