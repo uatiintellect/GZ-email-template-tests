@@ -66,8 +66,8 @@ async function func() {
 
 
     //clicking on notifications settings
-    await page.waitForSelector("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7)");
-    await page.click("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7)");
+    await page.waitForSelector("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(8)");
+    await page.click("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(8)");
     await page.waitForTimeout(13050);
 
     //checking 1st and 3rd checkbox
@@ -245,7 +245,7 @@ async function func() {
     await page.bringToFront();
     await page.waitForTimeout(4000);
     await page.click(
-        "#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7)"
+        "#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(8)"
     );
     await page.waitForTimeout(7750);
 
@@ -271,7 +271,7 @@ async function func() {
     await page_gz.bringToFront();
     await page_gz.waitForTimeout(3000);
     await page_gz.evaluate(() => {
-        let button = document.querySelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div.container.mx-auto.mt-4 > div.relative.md\\:pl-8.xl\\:pl-12.min-h-550 > div.relative.w-full.py-12.fade-card-enter-done > div > div > div > ul > li > div > div > div > div > a");
+        let button = document.querySelector("a[href='/course-details/bc9c240d-b1d4-4653-9b47-4f2abdc24f26']");
             button.scrollIntoView({
                 behavior: "smooth",
                 block: "center",
@@ -319,7 +319,7 @@ async function func() {
     await page.bringToFront();
     await page.waitForTimeout(2500); // delay for 2 seconds
     await page.click(
-        "#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7)"
+        "#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(8)"
     );
     await page.waitForTimeout(6750);
 
