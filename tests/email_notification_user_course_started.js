@@ -8,7 +8,7 @@ async function func() {
     var cor_name = 'A TEST course for Testing Operation'; // default name for all the orgs
 
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         defaultViewport: null,
         //executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',   //windows
         //executablePath: "..\\cdr\\chromedriver_win32\\chromedriver.exe",    //linux
@@ -19,17 +19,17 @@ async function func() {
     var page_gz = await browser.newPage(); //gz page
     var page_temp_mail = await browser.newPage();   //temp-mail page
     //when headless=true
-    // await page.setViewport({
-    //     width: 1920,
-    //     height: 1080,
-    //     deviceScaleFactor: 1,
-    // })
-    // //when headless=true
-    // await page_gz.setViewport({
-    //     width: 1920,
-    //     height: 1080,
-    //     deviceScaleFactor: 1,
-    // })
+    await page.setViewport({
+        width: 1920,
+        height: 1080,
+        deviceScaleFactor: 1,
+    })
+    //when headless=true
+    await page_gz.setViewport({
+        width: 1920,
+        height: 1080,
+        deviceScaleFactor: 1,
+    })
     //Configure the navigation timeout
     await page.setDefaultNavigationTimeout(0);
     await page_gz.setDefaultNavigationTimeout(0);
@@ -66,8 +66,8 @@ async function func() {
 
 
     //clicking on notifications settings
-    await page.waitForSelector("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7)");
-    await page.click("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7)");
+    await page.waitForSelector("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(8)");
+    await page.click("#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(8)");
     await page.waitForTimeout(13050);
 
     //checking 1st and 3rd checkbox
@@ -245,7 +245,7 @@ async function func() {
     await page.bringToFront();
     await page.waitForTimeout(4000);
     await page.click(
-        "#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7)"
+        "#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(8)"
     );
     await page.waitForTimeout(7750);
 
@@ -280,7 +280,7 @@ async function func() {
         button.click();
     });
     await page_gz.waitForTimeout(7000);
-    await page_gz.waitForSelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div > div.px-6.md\\:px-8.\\32 xl\\:px-0.\\32 xl\\:container.mx-auto.flex.flex-col.xl\\:flex-row.xl\\:space-x-5.mb-28.xl\\:mb-4.xl\\:items-start > div.w-full.xl\\:w-8\\/12.xl\\:mr-12.relative.rounded-lg > div > div > div > div.w-full.relative.shadow-xl.rounded-22px > div > div > div.flex.flex-col.h-full.relative > div > div.px-8.md\\:px-14.lg\\:px-20.relative.z-40.w-full.pb-14 > div > div > div.flex.flex-col.items-center.justify-center.w-full > button");
+    // await page_gz.waitForSelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div > div.px-6.md\\:px-8.\\32 xl\\:px-0.\\32 xl\\:container.mx-auto.flex.flex-col.xl\\:flex-row.xl\\:space-x-5.mb-28.xl\\:mb-4.xl\\:items-start > div.w-full.xl\\:w-8\\/12.xl\\:mr-12.relative.rounded-lg > div > div > div > div.w-full.relative.shadow-xl.rounded-22px > div > div > div.flex.flex-col.h-full.relative > div > div.px-8.md\\:px-14.lg\\:px-20.relative.z-40.w-full.pb-14 > div > div > div.flex.flex-col.items-center.justify-center.w-full > button");
     await page_gz.waitForTimeout(3000);
     // await page_gz.evaluate(() => {
     //     let button = document.querySelector("#_next > div > div.relative.z-30 > div.mb-96.bg-white.z-30.lg\\:pb-32.min-h-screen > div > div > div.px-6.md\\:px-8.\\32 xl\\:px-0.\\32 xl\\:container.mx-auto.flex.flex-col.xl\\:flex-row.xl\\:space-x-5.mb-28.xl\\:mb-4.xl\\:items-start > div.w-full.xl\\:w-8\\/12.xl\\:mr-12.relative.rounded-lg > div > div > div > div.w-full.relative.shadow-xl.rounded-22px > div > div > div.flex.flex-col.h-full.relative > div > div.px-8.md\\:px-14.lg\\:px-20.relative.z-40.w-full.pb-14 > div > div > div.flex.flex-col.items-center.justify-center.w-full > button");
@@ -319,7 +319,7 @@ async function func() {
     await page.bringToFront();
     await page.waitForTimeout(2500); // delay for 2 seconds
     await page.click(
-        "#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(7)"
+        "#__next > div > div > div.w-64.min-h-screen.bg-lf-sidebar.dark\\:bg-lf-dark-sidebar.text-lf-sidebar-item.shadow.pt-3.flex-col.justify-between.flex.transition-all.ease-in-out.duration-200.fixed.z-50 > div > ul > li:nth-child(8)"
     );
     await page.waitForTimeout(6750);
 
